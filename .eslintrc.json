@@ -19,9 +19,6 @@
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "eslint jsx-quotes": [
-      "error",
-      "prefer-single"
-    ]
+    "quotes": "off"
   }
 }
