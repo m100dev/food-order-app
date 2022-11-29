@@ -12,6 +12,9 @@ const cartReducer = (prevState, action) => {
     case 'ADD_ITEM':
       const updatedItems = prevState.items.concat(action.payload);
       const updatedTotalCost = prevState.totalCost + (action.payload.price * action.payload.quantity);
+      console.log(updatedItems);
+      console.log(updatedTotalCost);
+
       return { items: updatedItems, totalCost: updatedTotalCost };
   }
 
