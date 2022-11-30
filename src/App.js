@@ -5,13 +5,17 @@ import Cart from './components/Cart/Cart';
 import CartProvider from './store/CartProvider';
 
 function App() {
-  const [cartIsShown, setCartIsShown] = useState(false);
+  // Cart modal state
+  const [showCart, setShowCart] = useState(false);
 
-  const updateShowCartState = (state) => setCartIsShown(state);
+  // This handler will be used to retrieve cart state data from its child components. It is passed as a prop
+  // to the components which will use it to open and close the cart.
+  const updateShowCartState = (state) => setShowCart(state);
 
+  // The cart is conditionally rendered based on the showCart state value
   return (
     <CartProvider>
-      {cartIsShown && <Cart onUpdateShowCartState={updateShowCartState} />}
+      {showCart && <Cart onUpdateShowCartState={updateShowCartState} />}
       <Header onUpdateShowCartState={updateShowCartState} />
       <main>
         <Meals />

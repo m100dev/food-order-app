@@ -3,6 +3,7 @@ import classes from './CartItem.module.css';
 const CartItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
 
+  //When the + or - button is clicked, the cartItemHandlers for adding and removing the item are run
   return (
     <li className={classes['cart-item']}>
       <div>

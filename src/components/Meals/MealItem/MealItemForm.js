@@ -4,9 +4,13 @@ import Input from '../../UI/Input';
 import classes from './MealItemForm.module.css';
 
 const MealItemForm = (props) => {
+  // Setting state that check the quantity to ensure it is between 1-5.
   const [amountIsValid, setAmountIsValid] = useState(true);
+
+  // We use a reference to retrieve that value of the quantity and store it in a constant
   const desiredNumberOfItemsRef = useRef();
 
+  // Validates the user input before passing the total number of meals that should be added to the cart.
   const submitHandler = (event) => {
     event.preventDefault();
 
@@ -17,6 +21,7 @@ const MealItemForm = (props) => {
       return;
     }
 
+    // Function used to lift the quantity value up to the parent component.
     props.onAddToCart(numberOfItems);
   };
 
@@ -26,7 +31,7 @@ const MealItemForm = (props) => {
       onSubmit={submitHandler}>
       <Input
         ref={desiredNumberOfItemsRef}
-        label="Amount"
+        label="Quantity"
         input={{
           id: `amount_${props.id}`,
           type: 'number',
